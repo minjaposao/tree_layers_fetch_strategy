@@ -1,4 +1,4 @@
-
+export const dynamic = 'force-dynamic';
 import { getAllUsers } from "@/query/users/getAllUsers";
 
 import DashboardPage from "./components/dashboard";
