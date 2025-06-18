@@ -31,9 +31,9 @@ export default function DashboardPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {users.map((user) => (
+                {users.map((user, index) => (
                   <TableRow
-                    key={user._id}
+                    key={user._id ?? index}
                     className="hover:bg-blue-50 transition-colors duration-200"
                   >
                     <TableCell className="px-4 py-3 font-medium">{user.name}</TableCell>
