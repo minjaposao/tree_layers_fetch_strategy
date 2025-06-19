@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useUsers } from "@/context/userContext";
+import { useUserMutations } from "@/hooks/users/useUserMutations";
 
 // const users = [
 //   { name: "Ana", age: 28, price: 123.45 },
@@ -13,6 +14,7 @@ import { useUsers } from "@/context/userContext";
 export default function DashboardPage() {
 
   const { users } = useUsers();
+  const { deleteUser, isDeleting } = useUserMutations();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-100 via-white to-blue-100 p-10">
@@ -28,6 +30,7 @@ export default function DashboardPage() {
                   <TableHead className="px-4 py-3">Name</TableHead>
                   <TableHead className="px-4 py-3">Age</TableHead>
                   <TableHead className="px-4 py-3">Price ($)</TableHead>
+                  <TableHead className="px-4 py-3">Delete</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -39,6 +42,15 @@ export default function DashboardPage() {
                     <TableCell className="px-4 py-3 font-medium">{user.name}</TableCell>
                     <TableCell className="px-4 py-3">{user.age}</TableCell>
                     <TableCell className="px-4 py-3">${user.price}</TableCell>
+                    <TableCell className="px-4 py-3">
+                      <button
+                        onClick={() => deleteUser(user._id)}
+                        disabled={isDeleting}
+                        className="mt-2 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 disabled:opacity-50"
+                      >
+                        {isDeleting ? 'Deleting...' : 'Delete Team'}
+                      </button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
