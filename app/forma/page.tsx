@@ -1,4 +1,4 @@
-
+export const dynamic = 'force-dynamic';
 
 import CreateUserForm1 from '../components/CreateUserForm1'
 import DashboardPage from '../components/dashboard'
