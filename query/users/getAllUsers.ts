@@ -15,6 +15,7 @@ export async function getAllUsers() {
         return sanitizeUsers as User[];
 
     } catch (error) {
+        console.error(error)
         throw new Error('Failed to fetch users');
     }
 }

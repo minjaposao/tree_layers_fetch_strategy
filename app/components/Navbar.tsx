@@ -37,6 +37,11 @@ export default function Navbar() {
             Contact
           </Button>
         </Link>
+        <Link href="/jsmastery">
+          <Button variant="ghost" className="text-shadow-amber-300 hover:bg-white/10">
+           JSMastery
+          </Button>
+        </Link>
       </div>
     </nav>
   );
